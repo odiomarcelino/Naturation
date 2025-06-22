@@ -13,5 +13,10 @@
   },
   "devDependencies": {
     "turbo": "^1.13.0"
+  },
+  "dependencies": {
+    "graphql-yoga": "^5.13.5",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
   }
 }
