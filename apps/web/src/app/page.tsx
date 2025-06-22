@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { io, Socket } from 'socket.io-client';
 
 import RiverSection from '../components/RiverSection';
-import SkySection from '../components/SkySection';
+import SkySection3D from '../components/SkySection3D';
 import ForestSection from '../components/ForestSection';
 import DesertSection from '../components/DesertSection';
 import MountainSection from '../components/MountainSection';
@@ -51,7 +51,7 @@ export default function Home() {
 
   return (
     <main className="w-full min-h-screen bg-gradient-to-b from-blue-100 to-green-100" onClick={toggleDayNight}>
-      <SkySection isNight={isNight} weather={weather} />
+      <SkySection3D />
       <RiverSection />
       <ForestSection />
       <DesertSection />
