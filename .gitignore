@@ -5,3 +5,4 @@ node_modules/
 *.sqlite
 *.log
 npm-debug.log*
+.turbo/
