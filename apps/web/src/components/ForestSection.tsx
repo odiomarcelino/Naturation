@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 
 const RUBY_SEASON_URL = process.env.NEXT_PUBLIC_SEASON_API || 'http://localhost:4567/season';
 
@@ -71,12 +72,33 @@ const ForestSection = () => {
   }, [wasmLoaded, wasm]);
 
   return (
-    <section className={`h-screen flex flex-col items-center justify-center transition-colors duration-700 ${seasonColors[season] || 'bg-green-200'}`}>
-      <canvas ref={canvasRef} width={800} height={300} className="w-2/3 h-1/3 border-2 border-green-400 rounded-lg shadow-lg bg-green-100 mb-6" />
-      <h2 className="text-4xl font-bold text-green-900 mb-4">Forest Section</h2>
-      <div className="text-2xl font-semibold text-green-800 mb-2">Current Season: <span className="capitalize">{season}</span></div>
-      <div className="text-green-700 opacity-80">(Ruby-powered season rotation: changes every hour)</div>
-      <div className="text-xs text-green-700 opacity-60 mt-2">Rust/WASM-powered fireflies demo</div>
+    <section className={`h-screen flex items-center justify-center bg-gradient-to-b from-green-200 to-green-400 relative overflow-hidden`}>
+      <motion.div
+        initial={{ opacity: 0, y: 80 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="z-10"
+      >
+        <h2 className="text-5xl font-extrabold text-green-900 drop-shadow-lg mb-8">Forest Section</h2>
+        <div className="text-lg text-green-900 bg-white/60 rounded-xl px-6 py-4 shadow-lg backdrop-blur-md">
+          Season: <span className="font-bold capitalize">{season}</span> (More features coming soon)
+        </div>
+      </motion.div>
+      {/* Animated SVG trees */}
+      <svg className="absolute bottom-0 left-0 w-full h-1/2 z-0" viewBox="0 0 1920 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g>
+          <motion.rect initial={{ y: 100 }} animate={{ y: 0 }} transition={{ duration: 1.2, delay: 0.2 }} x="200" y="400" width="30" height="120" fill="#7c5e3c" />
+          <motion.circle initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ duration: 1.2, delay: 0.4 }} cx="215" cy="400" r="60" fill="#3cb371" />
+        </g>
+        <g>
+          <motion.rect initial={{ y: 100 }} animate={{ y: 0 }} transition={{ duration: 1.2, delay: 0.5 }} x="600" y="420" width="30" height="100" fill="#7c5e3c" />
+          <motion.circle initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ duration: 1.2, delay: 0.7 }} cx="615" cy="420" r="50" fill="#228b22" />
+        </g>
+        <g>
+          <motion.rect initial={{ y: 100 }} animate={{ y: 0 }} transition={{ duration: 1.2, delay: 0.8 }} x="1200" y="410" width="30" height="110" fill="#7c5e3c" />
+          <motion.circle initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ duration: 1.2, delay: 1.0 }} cx="1215" cy="410" r="55" fill="#2e8b57" />
+        </g>
+      </svg>
     </section>
   );
 };
