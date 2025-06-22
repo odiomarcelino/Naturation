@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-interface WeatherResp {
+interface SkySectionProps {
+  isNight: boolean;
   weather: {
     temperature?: number;
     windspeed?: number;
     weathercode?: number;
-  };
+  } | null;
 }
 
 const weatherIcons: Record<number, string> = {
@@ -32,22 +33,12 @@ const weatherIcons: Record<number, string> = {
   99: '⛈️',
 };
 
-const SkySection = () => {
+const SkySection = ({ isNight, weather }: SkySectionProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [isNight, setIsNight] = useState(false);
-  const [weather, setWeather] = useState<WeatherResp['weather'] | null>(null);
   const [rainCount, setRainCount] = useState<number | null>(null);
 
-  // Fetch weather once on mount
+  // Fetch rain stats on mount and every 10s
   useEffect(() => {
-    fetch('/api/weather')
-      .then((r) => r.json())
-      .then((data: WeatherResp) => setWeather(data.weather))
-      .catch(() => {});
-  }, []);
-
-  useEffect(() => {
-    // Fetch rain stats on mount and every 10s
     const fetchStats = () => {
       fetch('/api/stats')
         .then((r) => r.json())
@@ -128,12 +119,8 @@ const SkySection = () => {
     return () => {};
   }, [isNight, weather]);
 
-  const toggleDayNight = () => {
-    setIsNight((v) => !v);
-  };
-
   return (
-    <section className="h-screen flex items-center justify-center bg-gradient-to-b from-sky-300 to-blue-100 relative" onClick={toggleDayNight}>
+    <section className="h-screen flex items-center justify-center bg-gradient-to-b from-sky-300 to-blue-100 relative">
       <canvas ref={canvasRef} width={1920} height={1080} className="w-full h-full absolute inset-0 z-0" />
       <div className="absolute left-4 bottom-4 text-sm opacity-80 space-y-1 z-10">
         <div>Click anywhere to toggle day/night.</div>

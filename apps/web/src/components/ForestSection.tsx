@@ -28,22 +28,25 @@ const ForestSection = () => {
   }, []);
 
   useEffect(() => {
-    import('/wasm-particles/particles.js')
-      .then(setWasm)
-      .then(() => setWasmLoaded(true))
-      .catch(() => setWasmLoaded(false));
+    // TODO: Update the import path below to the correct WASM JS output once available.
+    // import('/wasm-particles/particles.js')
+    //   .then(setWasm)
+    //   .then(() => setWasmLoaded(true))
+    //   .catch(() => setWasmLoaded(false));
+    setWasmLoaded(false); // Prevents build error for now
   }, []);
 
   useEffect(() => {
     if (!wasmLoaded || !wasm || !canvasRef.current) return;
     const canvas = canvasRef.current;
+    if (!canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
     let running = true;
     // Create 30 random particles
     let particles = Array.from({ length: 30 }, () => wasm.random_particle());
     function draw() {
-      if (!running) return;
+      if (!running || !ctx) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       // Draw background
       ctx.fillStyle = '#e6ffe6';

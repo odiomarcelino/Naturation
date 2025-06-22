@@ -15,6 +15,7 @@
     "turbo": "^1.13.0"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.10",
     "graphql-yoga": "^5.13.5",
     "socket.io-client": "^4.8.1",
     "sqlite": "^5.1.1",

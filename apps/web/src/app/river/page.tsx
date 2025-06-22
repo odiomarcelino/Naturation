@@ -20,7 +20,7 @@ export default function River() {
     (async () => {
       try {
         // @ts-expect-error – path resolved at runtime after wasm-pack build
-        await import('services/rs-particles/pkg');
+        await import('../../../../services/rs-particles/pkg');
         console.log('WASM ripple module loaded.');
         // Here you would wire up functions exported from Rust.
       } catch (err) {

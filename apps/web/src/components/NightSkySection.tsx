@@ -2,7 +2,11 @@ import React, { useEffect, useState } from 'react';
 
 const PHP_FLOWER_URL = process.env.NEXT_PUBLIC_FLOWER_API || 'http://localhost:8001/flower.php';
 
-const NightSkySection = () => {
+interface NightSkySectionProps {
+  isNight: boolean;
+}
+
+const NightSkySection = ({ isNight }: NightSkySectionProps) => {
   const [svg, setSvg] = useState('');
   const [bloom, setBloom] = useState(false);
   const [bloomCount, setBloomCount] = useState<number | null>(null);

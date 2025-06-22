@@ -1,0 +1,9 @@
+"use strict";(()=>{var e={};e.id=662,e.ids=[662],e.modules={69:(e,t,a)=>{a.a(e,async(e,r)=>{try{a.r(t),a.d(t,{config:()=>c,default:()=>p,routeModule:()=>l});var n=a(4409),i=a(4600),o=a(6440),s=a(4732),u=e([s]);s=(u.then?(await u)():u)[0];let p=(0,o.M)(s,"default"),c=(0,o.M)(s,"config"),l=new n.PagesAPIRouteModule({definition:{kind:i.A.PAGES_API,page:"/api/graphql",pathname:"/api/graphql",bundlePath:"",filename:""},userland:s});r()}catch(e){r(e)}})},3674:e=>{e.exports=import("sqlite")},4409:(e,t,a)=>{e.exports=a(5600)},4600:(e,t)=>{Object.defineProperty(t,"A",{enumerable:!0,get:function(){return a}});var a=function(e){return e.PAGES="PAGES",e.PAGES_API="PAGES_API",e.APP_PAGE="APP_PAGE",e.APP_ROUTE="APP_ROUTE",e.IMAGE="IMAGE",e}({})},4732:(e,t,a)=>{a.a(e,async(e,r)=>{try{a.r(t),a.d(t,{config:()=>d,default:()=>l});var n=a(5370),i=a(6689),o=a.n(i),s=a(3674),u=e([n,s]);async function p(){return(0,s.open)({filename:"./stats.sqlite",driver:o().Database})}[n,s]=u.then?(await u)():u;let c=`
+  type Stat {
+    type: String!
+    count: Int!
+  }
+  type Query {
+    stats: [Stat!]!
+  }
+`,l=(0,n.createYoga)({schema:(0,n.createSchema)({typeDefs:c,resolvers:{Query:{stats:async()=>{let e=await p();return await e.all("SELECT type, COUNT(*) as count FROM events GROUP BY type")}}}}),graphqlEndpoint:"/api/graphql"}),d={api:{bodyParser:!1}};r()}catch(e){r(e)}})},5370:e=>{e.exports=import("graphql-yoga")},5600:e=>{e.exports=require("next/dist/compiled/next-server/pages-api.runtime.prod.js")},6440:(e,t)=>{Object.defineProperty(t,"M",{enumerable:!0,get:function(){return function e(t,a){return a in t?t[a]:"then"in t&&"function"==typeof t.then?t.then(t=>e(t,a)):"function"==typeof t&&"default"===a?t:void 0}}})},6689:e=>{e.exports=require("sqlite3")}};var t=require("../../webpack-api-runtime.js");t.C(e);var a=t(t.s=69);module.exports=a})();
