@@ -1,0 +1,17 @@
+{
+  "name": "nature-animations-monorepo",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "services/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "build:wasm": "wasm-pack build services/rs-particles --release --target web --out-dir services/rs-particles/pkg"
+  },
+  "devDependencies": {
+    "turbo": "^1.13.0"
+  }
+}
