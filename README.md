@@ -1,4 +1,4 @@
-# 🌿 Nature-Animation Polyglot Demo
+# 🌿 Nature-Animation Polyglot
 
 A live, interactive digital artwork and technical showcase, blending the beauty of nature with the creative power of every language and framework Vercel supports.
 
