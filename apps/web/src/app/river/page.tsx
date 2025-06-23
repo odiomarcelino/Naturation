@@ -19,7 +19,7 @@ export default function River() {
   useEffect(() => {
     (async () => {
       try {
-        // Try to load WASM from public directory (Vercel compatible)
+        // @ts-ignore
         await import('/rs-particles/particles.js');
         console.log('WASM ripple module loaded from public/rs-particles.');
         // Here you would wire up functions exported from Rust.
