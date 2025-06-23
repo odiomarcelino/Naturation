@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calm Nature Scene</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="scene-container">
+    <!-- Simple SVG Forest Scene -->
+    <svg id="nature-scene" viewBox="0 0 400 300" width="100%" height="100%">
+      <!-- Sky -->
+      <rect x="0" y="0" width="400" height="300" fill="#b3e0ff" />
+      <!-- Sun -->
+      <circle id="sun" cx="320" cy="60" r="30" fill="#ffe066" />
+      <!-- Ground -->
+      <rect x="0" y="220" width="400" height="80" fill="#7ec850" />
+      <!-- Trees -->
+      <g id="trees">
+        <g class="tree" style="--tree-x:60;">
+          <rect x="55" y="170" width="10" height="50" fill="#8d5524" />
+          <ellipse cx="60" cy="170" rx="25" ry="35" fill="#3fa34d" />
+        </g>
+        <g class="tree" style="--tree-x:120;">
+          <rect x="115" y="190" width="10" height="30" fill="#8d5524" />
+          <ellipse cx="120" cy="190" rx="18" ry="25" fill="#3fa34d" />
+        </g>
+        <g class="tree" style="--tree-x:200;">
+          <rect x="195" y="180" width="10" height="40" fill="#8d5524" />
+          <ellipse cx="200" cy="180" rx="22" ry="30" fill="#3fa34d" />
+        </g>
+      </g>
+      <!-- River -->
+      <ellipse id="river" cx="300" cy="270" rx="60" ry="18" fill="#6ec6f3" opacity="0.7" />
+      <!-- Flower -->
+      <g id="flower" class="flower-group">
+        <circle cx="80" cy="240" r="7" fill="#f7b2d9" />
+        <ellipse class="petal" cx="80" cy="232" rx="4" ry="10" fill="#fff0f6" />
+        <ellipse class="petal" cx="80" cy="248" rx="4" ry="10" fill="#fff0f6" />
+        <ellipse class="petal" cx="72" cy="240" rx="10" ry="4" fill="#fff0f6" />
+        <ellipse class="petal" cx="88" cy="240" rx="10" ry="4" fill="#fff0f6" />
+      </g>
+      <!-- Stars (hidden by default, shown at night) -->
+      <g id="stars" style="opacity:0;">
+        <circle class="star" cx="60" cy="40" r="1.2" fill="#fff" />
+        <circle class="star" cx="100" cy="30" r="0.9" fill="#fff" />
+        <circle class="star" cx="200" cy="50" r="1.5" fill="#fff" />
+        <circle class="star" cx="350" cy="70" r="1.1" fill="#fff" />
+        <circle class="star" cx="250" cy="20" r="1.3" fill="#fff" />
+      </g>
+    </svg>
+    <div class="overlay-text">Calm Nature Scene</div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

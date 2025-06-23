@@ -1,16 +1,10 @@
 {
-  "functions": {
-    "api/weather/index.py": { "runtime": "python3.11" },
-    "api/socket/index.go": { "runtime": "go1.x" },
-    "api/particles/index.wasm": { "runtime": "wasm-wagi" },
-    "api/cron/index.rb": { "runtime": "ruby3.2" },
-    "api/legacy/index.php": { "runtime": "php" }
-  },
+  "version": 2,
+  "public": true,
+  "builds": [
+    { "src": "public/index.html", "use": "@vercel/static" }
+  ],
   "routes": [
-    { "src": "/api/weather", "dest": "services/py-weather/main.py" },
-    { "src": "/api/socket", "dest": "services/go-socket/main.go" },
-    { "src": "/api/particles", "dest": "services/rs-particles/pkg/particles_bg.wasm" },
-    { "src": "/api/cron", "dest": "services/rb-cron/app.rb" },
-    { "src": "/api/legacy", "dest": "services/php-legacy/public/index.php" }
+    { "src": "/(.*)", "dest": "/public/index.html" }
   ]
 }
