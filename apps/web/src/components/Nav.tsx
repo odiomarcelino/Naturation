@@ -5,6 +5,10 @@ import { usePathname } from 'next/navigation';
 const links = [
   { href: '/', label: 'Sky' },
   { href: '/river', label: 'River' },
+  { href: '/forest', label: 'Forest' },
+  { href: '/desert', label: 'Desert' },
+  { href: '/mountain', label: 'Mountain' },
+  { href: '/night', label: 'Night Sky' },
 ];
 
 export default function Nav() {

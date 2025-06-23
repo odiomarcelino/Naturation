@@ -50,21 +50,10 @@ export default function Home() {
   };
 
   return (
-    <main className="w-full min-h-screen bg-gradient-to-b from-blue-100 to-green-100" onClick={toggleDayNight}>
-      <SkySection3D />
-      <RiverSection />
-      <ForestSection />
-      <DesertSection />
-      <MountainSection />
-      <NightSkySection isNight={isNight} />
-      <div className="absolute left-4 bottom-4 text-sm opacity-80 space-y-1">
-        <div>Click anywhere to toggle day/night.</div>
-        {weather && (
-          <div>
-            Temp: {weather.temperature ?? '–'}°C · Wind: {weather.windspeed ?? '–'} km/h
-          </div>
-        )}
-      </div>
+    <main className="w-full h-screen flex flex-col items-center justify-center bg-gradient-to-b from-sky-300 to-blue-500 text-white">
+      <h1 className="text-5xl font-bold mb-4 drop-shadow-lg">Sky Environment</h1>
+      <p className="text-lg opacity-80">A beautiful, animated sky will live here soon. ☁️</p>
+      <div className="mt-8 text-base opacity-60">(Click navigation above to explore other environments)</div>
     </main>
   );
 }
